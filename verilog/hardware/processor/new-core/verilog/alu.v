@@ -99,21 +99,25 @@ module alu(ALUctl, A, B, ALUOut, Branch_Enable);
 
 			/*
 			 *	SLT (the fields also matches all the other SLT variants)
+			Set less than
 			 */
 			`kSAIL_MICROARCHITECTURE_ALUCTL_3to0_SLT:	ALUOut = $signed(A) < $signed(B) ? 32'b1 : 32'b0;
 
 			/*
 			 *	SRL (the fields also matches the other SRL variants)
+			Logical right shift pad with 0s
 			 */
 			`kSAIL_MICROARCHITECTURE_ALUCTL_3to0_SRL:	ALUOut = A >> B[4:0];
 
 			/*
 			 *	SRA (the fields also matches the other SRA variants)
+			Arithmetic right shift pad with original MSB
 			 */
 			`kSAIL_MICROARCHITECTURE_ALUCTL_3to0_SRA:	ALUOut = A >>> B[4:0];
 
 			/*
 			 *	SLL (the fields also match the other SLL variants)
+			Logical left shift pad with 0s
 			 */
 			`kSAIL_MICROARCHITECTURE_ALUCTL_3to0_SLL:	ALUOut = A << B[4:0];
 
@@ -124,16 +128,19 @@ module alu(ALUctl, A, B, ALUOut, Branch_Enable);
 
 			/*
 			 *	CSRRW  only
+			Atomic. Read/Write
 			 */
 			`kSAIL_MICROARCHITECTURE_ALUCTL_3to0_CSRRW:	ALUOut = A;
 
 			/*
 			 *	CSRRS only
+			Atomic. Uses a mask A to set specific bits in B
 			 */
 			`kSAIL_MICROARCHITECTURE_ALUCTL_3to0_CSRRS:	ALUOut = A | B;
 
 			/*
 			 *	CSRRC only
+			Atomic. Uses a mask A to clear specific bits in B
 			 */
 			`kSAIL_MICROARCHITECTURE_ALUCTL_3to0_CSRRC:	ALUOut = (~A) & B;
 
