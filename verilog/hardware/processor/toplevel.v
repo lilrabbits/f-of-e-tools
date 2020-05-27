@@ -91,7 +91,7 @@ module top (led);
 		.out(inst_out)
 	);
 
-	data_mem data_mem_inst(
+	ebr_data_mem data_mem_inst(
 			.clk(clk),
 			.addr(data_addr),
 			.write_data(data_WrData),
