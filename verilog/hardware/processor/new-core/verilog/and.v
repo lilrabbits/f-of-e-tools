@@ -43,27 +43,21 @@
  *		and program counter increment among other things.
  */
 
-module and_gate(input1, input2, input3, input4, out);
-    parameter n = 32;
-	input [31:0]	input1;
-	input [31:0]	input2;
-    input [31:0]    input3;
-    input [31:0]    input4;
-	output [31:0]   out;
-    genvar k;
+module and_gate #(parameter n = 32) (
+    input [31:0]	input1,
+	input [31:0]	input2,
+    input [31:0]    input3,
+    input [31:0]    input4,
+	output [31:0]   out,
+    genvar k
+    );
 
     // SB_LUT4 : 4-input Look-Up Table  
     generate
         for (k = 0; k < n; k = k + 1)
         begin: and_logic
 
-            SB_LUT4   
-
-             #(
-                .LUT_INIT(16'h0001)
-            )
-
-            SB_LUT4_inst ( 
+			SB_LUT4 #(.LUT_INIT(16'h0001)) SB_LUT4_and ( 
                 .O (out[k]),    // output 
                 .I0 (input1[k]),    // data input 0 
                 .I1 (input2[k]),    // data input 1 
