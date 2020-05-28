@@ -36,4 +36,7 @@ module dsp_add_sub(input1, input2, add_N, out);
     defparam dsp_adder_i.BOTADDSUB_LOWERINPUT = 2'b00;
     defparam dsp_adder_i.BOTADDSUB_UPPERINPUT = 1'b1;
     defparam dsp_adder_i.BOTADDSUB_CARRYSELECT = 2'b00;
+    defparam dsp_adder_i.MODE_8x8 = 1'b1;
+    defparam dsp_adder_i.PIPELINE_16x16_MULT_REG1 = 1'b1;
+    defparam dsp_adder_i.PIPELINE_16x16_MULT_REG2 = 1'b1;
 endmodule
