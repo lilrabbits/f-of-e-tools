@@ -81,8 +81,8 @@ module alu(ALUctl, A, B, ALUOut, Branch_Enable);
 	and_gate alu_and(
 		.input1(A),
 		.input2(B),
-		.input3(32'b1),
-		.input4(32'b1),
+		.input3(32'hFFFFFFFF),
+		.input4(32'hFFFFFFFF),
 		.out(alu_and_out),
 	);
 
