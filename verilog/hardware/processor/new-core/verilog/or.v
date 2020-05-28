@@ -44,24 +44,22 @@
  */
 
 module or_gate #(parameter n = 32) (
-    input [31:0]	input1,
-	input [31:0]	input2,
-    input [31:0]    input3,
-    input [31:0]    input4,
-	output [31:0]   out,
-    genvar k
+    input [31:0]	input1, input2, input3, input4,
+	output [31:0]   out
     );
 
     // SB_LUT4 : 4-input Look-Up Table  
+	genvar k;
     generate
         for (k = 0; k < n; k = k + 1)
         begin: or_logic
+
             SB_LUT4   #(.LUT_INIT(16'h7FFF)) SB_LUT4_or ( 
                 .O (out[k]),    // output 
                 .I0 (input1[k]),    // data input 0 
                 .I1 (input2[k]),    // data input 1 
                 .I2 (input3[k]),    // data input 2 
-                .I3 (input4[k])     // data input 3 
+                .I3 (input4[k])     // data input 3
                 );   
 
         end

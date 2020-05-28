@@ -44,15 +44,12 @@
  */
 
 module and_gate #(parameter n = 32) (
-    input [31:0]	input1,
-	input [31:0]	input2,
-    input [31:0]    input3,
-    input [31:0]    input4,
-	output [31:0]   out,
-    genvar k
+    input [31:0]	input1, input2, input3, input4,
+	output [31:0]   out
     );
 
     // SB_LUT4 : 4-input Look-Up Table  
+	genvar k;
     generate
         for (k = 0; k < n; k = k + 1)
         begin: and_logic
