@@ -68,7 +68,7 @@ module cpu(
 	 *	Data Memory
 	 */
 	input [31:0]		data_mem_out;
-	output [31:0]		data_mem_addr;
+	output [11:0]		data_mem_addr;
 	output [31:0]		data_mem_WrData;
 	output			data_mem_memwrite;
 	output			data_mem_memread;
@@ -133,7 +133,7 @@ module cpu(
 	wire [6:0]		alu_ctl;
 	wire			alu_branch_enable;
 	wire [31:0]		alu_result;
-	wire [31:0]		lui_result;
+	wire [11:0]		lui_result;
 
 	/*
 	 *	Memory access stage
@@ -342,9 +342,9 @@ module cpu(
 			.Branch_Enable(alu_branch_enable)
 		);
 
-	mux2to1 lui_mux(
-			.input0(alu_result),
-			.input1(id_ex_out[139:108]),
+	mux2to1 #(.width(12)) lui_mux(
+			.input0(alu_result[11:0]),
+			.input1(id_ex_out[119:108]),
 			.select(id_ex_out[9]),
 			.out(lui_result)
 		);
@@ -352,7 +352,7 @@ module cpu(
 	//EX/MEM Pipeline Register
 	ex_mem ex_mem_reg(
 			.clk(clk),
-			.data_in({id_ex_out[177:166], id_ex_out[155:151], wb_fwd2_mux_out, lui_result, alu_branch_enable, addr_adder_sum, id_ex_out[43:12], ex_cont_mux_out}),
+			.data_in({id_ex_out[177:166], id_ex_out[155:151], wb_fwd2_mux_out, 20'b0, lui_result, alu_branch_enable, addr_adder_sum, id_ex_out[43:12], ex_cont_mux_out}),
 			.data_out(ex_mem_out)
 		);
 

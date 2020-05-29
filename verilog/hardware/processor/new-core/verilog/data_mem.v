@@ -40,7 +40,7 @@
 
 module data_mem (clk, addr, write_data, memwrite, memread, sign_mask, read_data, led, clk_stall);
 	input			clk;
-	input [31:0]		addr;
+	input [11:0]		addr;
 	input [31:0]		write_data;
 	input			memwrite;
 	input			memread;
@@ -91,7 +91,7 @@ module data_mem (clk, addr, write_data, memwrite, memread, sign_mask, read_data,
 	/*
 	 *	Buffer to store address
 	 */
-	reg [31:0]		addr_buf;
+	reg [11:0]		addr_buf;
 
 	/*
 	 *	Sign_mask buffer
