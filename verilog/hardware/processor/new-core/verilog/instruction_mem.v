@@ -43,7 +43,7 @@
 
 
 module instruction_memory(addr, out);
-	input [31:0]		addr;
+	input [9:0]		addr;
 	output [31:0]		out;
 
 	/*
@@ -51,7 +51,7 @@ module instruction_memory(addr, out);
 	 *
 	 *	(Bad practice: The constant should be a `define).
 	 */
-	reg [31:0]		instruction_memory[0:2**12-1];
+	reg [31:0]		instruction_memory[0:2**10-1];
 
 	/*
 	 *	According to the "iCE40 SPRAM Usage Guide" (TN1314 Version 1.0), page 5:
@@ -74,5 +74,5 @@ module instruction_memory(addr, out);
 		$readmemh("verilog/program.hex",instruction_memory);
 	end
 
-	assign out = instruction_memory[addr >> 2];
+	assign out = instruction_memory[{20'b0, addr}];
 endmodule

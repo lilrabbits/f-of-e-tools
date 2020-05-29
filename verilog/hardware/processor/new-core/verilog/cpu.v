@@ -61,7 +61,7 @@ module cpu(
 	/*
 	 *	instruction memory input
 	 */
-	output [31:0]		inst_mem_in;
+	output [9:0]		inst_mem_in;
 	input [31:0]		inst_mem_out;
 
 	/*
@@ -507,7 +507,7 @@ module cpu(
 	assign inst_mux_sel = pcsrc | predict | mistake_trigger | Fence_signal;
 
 	//Instruction Memory Connections
-	assign inst_mem_in = pc_out;
+	assign inst_mem_in = pc_out[11:2];
 
 	//Data Memory Connections
 	assign data_mem_addr = lui_result;
