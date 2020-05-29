@@ -43,9 +43,6 @@
 
 module top (led);
 	output [7:0]	led;
-
-	wire		clk_proc;
-	wire		data_clk_stall;
 	
 	wire		clk;
 	reg		ENCLKHF		= 1'b1;	// Plock enable
@@ -75,7 +72,7 @@ module top (led);
 
 
 	cpu processor(
-		.clk(clk_proc),
+		.clk(clk),
 		.inst_mem_in(inst_in),
 		.inst_mem_out(inst_out),
 		.data_mem_out(data_out),
@@ -100,8 +97,5 @@ module top (led);
 			.read_data(data_out),
 			.sign_mask(data_sign_mask),
 			.led(led),
-			.clk_stall(data_clk_stall)
 		);
-
-	assign clk_proc = (data_clk_stall) ? 1'b1 : clk;
 endmodule

@@ -38,7 +38,7 @@
 
 //Data cache
 
-module data_mem (clk, addr, write_data, memwrite, memread, sign_mask, read_data, led, clk_stall);
+module data_mem (clk, addr, write_data, memwrite, memread, sign_mask, read_data, led);
 	input			clk;
 	input [31:0]		addr;
 	input [31:0]		write_data;
@@ -47,7 +47,6 @@ module data_mem (clk, addr, write_data, memwrite, memread, sign_mask, read_data,
 	input [3:0]		sign_mask;
 	output reg [31:0]	read_data;
 	output [7:0]		led;
-	output reg		clk_stall;	//Sets the clock high
 
 	/*
 	 *	led register
@@ -58,14 +57,6 @@ module data_mem (clk, addr, write_data, memwrite, memread, sign_mask, read_data,
 	 *	Current state
 	 */
 	integer			state = 0;
-
-	/*
-	 *	Possible states
-	 */
-	parameter		IDLE = 0;
-	parameter		READ_BUFFER = 1;
-	parameter		READ = 2;
-	parameter		WRITE = 3;
 
 	/*
 	 *	Line buffer
@@ -206,7 +197,6 @@ module data_mem (clk, addr, write_data, memwrite, memread, sign_mask, read_data,
 	 */
 	initial begin
 		$readmemh("verilog/data.hex", data_block);
-		clk_stall = 0;
 	end
 
 	/*
