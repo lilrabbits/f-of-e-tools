@@ -293,19 +293,8 @@ module cpu(
 			.out(RegB_mux_out)
 		);
 
-	mux2to1 #(.width(5)) RegA_AddrFwdFlush_mux(
-			.input0(if_id_out[51:47]),
-			.input1(5'b0),
-			.select(CSRRI_signal),
-			.out(RegA_AddrFwdFlush_mux_out)
-		);
-
-	mux2to1 #(.width(5)) RegB_AddrFwdFlush_mux(
-		.input0(if_id_out[56:52]),
-		.input1(5'b0),
-		.select(CSRR_signal),
-		.out(RegB_AddrFwdFlush_mux_out)
-	);
+	assign RegA_AddrFwdFlush_mux_out = (CSRRI_signal) ? 5'b0 : if_id_out[51:47];
+	assign RegB_AddrFwdFlush_mux_out = (CSRR_signal) ? 5'b0 : if_id_out[56:52];
 
 	assign CSRRI_signal = CSRR_signal & (if_id_out[46]);
 
