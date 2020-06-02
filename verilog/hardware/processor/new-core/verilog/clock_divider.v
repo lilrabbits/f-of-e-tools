@@ -33,9 +33,9 @@ module clock_divider(REFERENCECLK,
 	                                  .SCLK());
 
 	// Fin=48, Fout=16;
-	defparam clock_divider_inst.DIVR = 4'b0010;
-	defparam clock_divider_inst.DIVF = 7'b0111111;
-	defparam clock_divider_inst.DIVQ = 3'b110;
+	defparam clock_divider_inst.DIVR = 4'd1;
+	defparam clock_divider_inst.DIVF = 7'd7;
+	defparam clock_divider_inst.DIVQ = 3'd1;
 	defparam clock_divider_inst.FILTER_RANGE = 3'b001;
 	defparam clock_divider_inst.FEEDBACK_PATH = "SIMPLE";
 	defparam clock_divider_inst.DELAY_ADJUSTMENT_MODE_FEEDBACK = "FIXED";
