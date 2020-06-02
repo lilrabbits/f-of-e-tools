@@ -64,6 +64,7 @@ module alu(ALUctl, A, B, ALUOut, Branch_Enable);
 	wire [31:0]		alu_and_out;
 	wire [31:0]		alu_or_out;
 	wire [31:0]		alu_xor_out;
+	wire [31:0]		alu_not_out;
 
 	/*
 	 *	This uses Yosys's support for nonzero initial values:
@@ -103,6 +104,21 @@ module alu(ALUctl, A, B, ALUOut, Branch_Enable);
 		.out_xor(alu_xor_out),
 	);
 
+	not_gate alu_not(
+		.input1_not(A),
+		.input2_not(32'b0),
+		.input3_not(32'b0),
+		.input4_not(32'b0),
+		.out_not(alu_not_out),
+	);
+
+	not_A_and_B alu_and(
+		.input1_and(alu_not_out),
+		.input2_and(B),
+		.input3_and(32'hFFFFFFFF),
+		.input4_and(32'hFFFFFFFF),
+		.out_and(alu_notand_out),
+	);
 
 	always @(ALUctl, A, B) begin
 		case (ALUctl[3:0])
@@ -165,13 +181,13 @@ module alu(ALUctl, A, B, ALUOut, Branch_Enable);
 			 *	CSRRS only
 			Atomic. Uses a mask A to set specific bits in B
 			 */
-			`kSAIL_MICROARCHITECTURE_ALUCTL_3to0_CSRRS:	ALUOut = A | B;
+			`kSAIL_MICROARCHITECTURE_ALUCTL_3to0_CSRRS:	ALUOut = alu_or;
 
 			/*
 			 *	CSRRC only
 			Atomic. Uses a mask A to clear specific bits in B
 			 */
-			`kSAIL_MICROARCHITECTURE_ALUCTL_3to0_CSRRC:	ALUOut = (~A) & B;
+			`kSAIL_MICROARCHITECTURE_ALUCTL_3to0_CSRRC:	ALUOut = alu_notand_out;
 
 			/*
 			 *	Should never happen.
