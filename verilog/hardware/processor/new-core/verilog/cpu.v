@@ -167,7 +167,6 @@ module cpu(
 	wire [31:0]		branch_predictor_addr;
 	wire			predict;
 	wire [31:0]		branch_predictor_mux_out;
-	wire			actual_branch_decision;
 	wire			mistake_trigger;
 	wire			decode_ctrl_mux_sel;
 	wire			inst_mux_sel;
@@ -471,9 +470,7 @@ module cpu(
 	//Branch Predictor
 	branch_predictor branch_predictor_FSM(
 			.clk(clk),
-			.actual_branch_decision(actual_branch_decision),
 			.branch_decode_sig(cont_mux_out[6]),
-			.branch_mem_sig(ex_mem_out[6]),
 			.in_addr(if_id_out[31:0]),
 			.offset(imm_out),
 			.branch_addr(branch_predictor_addr),
