@@ -167,6 +167,7 @@ module cpu(
 	wire [31:0]		branch_predictor_addr;
 	wire			predict;
 	wire [31:0]		branch_predictor_mux_out;
+	wire			actual_branch_decision;
 	wire			mistake_trigger;
 	wire			decode_ctrl_mux_sel;
 	wire			inst_mux_sel;
