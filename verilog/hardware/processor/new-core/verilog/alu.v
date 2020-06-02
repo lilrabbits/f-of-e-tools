@@ -61,7 +61,7 @@ module alu(ALUctl, A, B, ALUOut, Branch_Enable);
 	output reg [31:0]	ALUOut;
 	output reg		Branch_Enable;
 
-	wire [31:0]		alu_and_out;
+	wire [31:0]		alu_xor_out;
 	/*
 	 *	This uses Yosys's support for nonzero initial values:
 	 *
@@ -76,12 +76,12 @@ module alu(ALUctl, A, B, ALUOut, Branch_Enable);
 		Branch_Enable = 1'b0;
 	end
 
-	and_gate alu_and(
-		.input1(A),
-		.input2(B),
-		.input3(32'hFFFFFFFF),
-		.input4(32'hFFFFFFFF),
-		.out(alu_and_out),
+	xor_gate alu_xor(
+		.input1_xor(A),
+		.input2_xor(B),
+		.input3_xor(32'hFFFFFFFF),
+		.input4_xor(32'hFFFFFFFF),
+		.out_xor(alu_xor_out),
 	);
 
 
@@ -90,7 +90,7 @@ module alu(ALUctl, A, B, ALUOut, Branch_Enable);
 			/*
 			 *	AND (the fields also match ANDI and LUI)
 			 */
-			`kSAIL_MICROARCHITECTURE_ALUCTL_3to0_AND:	ALUOut = alu_and_out;
+			`kSAIL_MICROARCHITECTURE_ALUCTL_3to0_AND:	ALUOut = A & B;
 
 			/*
 			 *	OR (the fields also match ORI)
@@ -134,7 +134,7 @@ module alu(ALUctl, A, B, ALUOut, Branch_Enable);
 			/*
 			 *	XOR (the fields also match other XOR variants)
 			 */
-			`kSAIL_MICROARCHITECTURE_ALUCTL_3to0_XOR:	ALUOut = A ^ B;
+			`kSAIL_MICROARCHITECTURE_ALUCTL_3to0_XOR:	ALUOut = alu_xor_out;
 
 			/*
 			 *	CSRRW  only
