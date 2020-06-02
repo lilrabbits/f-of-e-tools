@@ -79,19 +79,19 @@ module alu(ALUctl, A, B, ALUOut, Branch_Enable);
 	end
 
 	and_gate alu_and(
-		.input1(A),
-		.input2(B),
-		.input3(32'hFFFFFFFF),
-		.input4(32'hFFFFFFFF),
-		.out(alu_and_out),
+		.input1_and(A),
+		.input2_and(B),
+		.input3_and(32'hFFFFFFFF),
+		.input4_and(32'hFFFFFFFF),
+		.out_and(alu_and_out),
 	);
 
 	or_gate alu_or(
-		.input1(A),
-		.input2(B),
-		.input3(32'b0),
-		.input4(32'b0),
-		.out(alu_or_out),
+		.input1_or(A),
+		.input2_or(B),
+		.input3_or(32'b0),
+		.input4_or(32'b0),
+		.out_or(alu_or_out),
 	);
 
 

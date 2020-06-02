@@ -30,7 +30,7 @@
 	LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 	CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
 	LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
-	ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+	ANY WAY out OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 	POSSIBILITY OF SUCH DAMAGE.
 */
 
@@ -44,266 +44,266 @@
  */
 
 module and_gate #(parameter n = 32) (
-    input [31:0]	input1, input2, input3, input4,
-	output [31:0]   out
+    input [31:0]	input1_and, input2_and, input3_and, input4_and,
+	output [31:0]   out_and
     );
 
     // SB_LUT4 : 4-input Look-Up Table  
 
 	SB_LUT4 #(.LUT_INIT(16'h0001)) SB_LUT4_and0 ( 
-		.O (out[0]),    // output 
-		.I0 (input1[0]),    // data input 0 
-		.I1 (input2[0]),    // data input 1 
-		.I2 (input3[0]),    // data input 2 
-		.I3 (input4[0])     // data input 3 
+		.O (out_and[0]),    // output 
+		.I0 (input1_and[0]),    // data input 0 
+		.I1 (input2_and[0]),    // data input 1 
+		.I2 (input3_and[0]),    // data input 2 
+		.I3 (input4_and[0])     // data input 3 
 		);  
 
 	SB_LUT4 #(.LUT_INIT(16'h0001)) SB_LUT4_and1 ( 
-		.O (out[1]),    // output 
-		.I0 (input1[1]),    // data input 0 
-		.I1 (input2[1]),    // data input 1 
-		.I2 (input3[1]),    // data input 2 
-		.I3 (input4[1])     // data input 3 
+		.O (out_and[1]),    // output 
+		.I0 (input1_and[1]),    // data input 0 
+		.I1 (input2_and[1]),    // data input 1 
+		.I2 (input3_and[1]),    // data input 2 
+		.I3 (input4_and[1])     // data input 3 
 		); 
 
 	SB_LUT4 #(.LUT_INIT(16'h0001)) SB_LUT4_and2 ( 
-		.O (out[2]),    // output 
-		.I0 (input1[2]),    // data input 0 
-		.I1 (input2[2]),    // data input 1 
-		.I2 (input3[2]),    // data input 2 
-		.I3 (input4[2])     // data input 3 
+		.O (out_and[2]),    // output 
+		.I0 (input1_and[2]),    // data input 0 
+		.I1 (input2_and[2]),    // data input 1 
+		.I2 (input3_and[2]),    // data input 2 
+		.I3 (input4_and[2])     // data input 3 
 		); 
 
 	SB_LUT4 #(.LUT_INIT(16'h0001)) SB_LUT4_and3 ( 
-		.O (out[3]),    // output 
-		.I0 (input1[3]),    // data input 0 
-		.I1 (input2[3]),    // data input 1 
-		.I2 (input3[3]),    // data input 2 
-		.I3 (input4[3])     // data input 3 
+		.O (out_and[3]),    //output 
+		.I0 (input1_and[3]),    // data input 0 
+		.I1 (input2_and[3]),    // data input 1 
+		.I2 (input3_and[3]),    // data input 2 
+		.I3 (input4_and[3])     // data input 3 
 		); 
 
 	SB_LUT4 #(.LUT_INIT(16'h0001)) SB_LUT4_and4 ( 
-		.O (out[4]),    // output 
-		.I0 (input1[4]),    // data input 0 
-		.I1 (input2[4]),    // data input 1 
-		.I2 (input3[4]),    // data input 2 
-		.I3 (input4[4])     // data input 3 
+		.O (out_and[4]),    //output 
+		.I0 (input1_and[4]),    // data input 0 
+		.I1 (input2_and[4]),    // data input 1 
+		.I2 (input3_and[4]),    // data input 2 
+		.I3 (input4_and[4])     // data input 3 
 		); 
 
 	SB_LUT4 #(.LUT_INIT(16'h0001)) SB_LUT4_and5 ( 
-		.O (out[5]),    // output 
-		.I0 (input1[5]),    // data input 0 
-		.I1 (input2[5]),    // data input 1 
-		.I2 (input3[5]),    // data input 2 
-		.I3 (input4[5])     // data input 3 
+		.O (out_and[5]),    //output 
+		.I0 (input1_and[5]),    // data input 0 
+		.I1 (input2_and[5]),    // data input 1 
+		.I2 (input3_and[5]),    // data input 2 
+		.I3 (input4_and[5])     // data input 3 
 		); 
 
 	SB_LUT4 #(.LUT_INIT(16'h0001)) SB_LUT4_and6 ( 
-		.O (out[6]),    // output 
-		.I0 (input1[6]),    // data input 0 
-		.I1 (input2[6]),    // data input 1 
-		.I2 (input3[6]),    // data input 2 
-		.I3 (input4[6])     // data input 3 
+		.O (out_and[6]),    //output 
+		.I0 (input1_and[6]),    // data input 0 
+		.I1 (input2_and[6]),    // data input 1 
+		.I2 (input3_and[6]),    // data input 2 
+		.I3 (input4_and[6])     // data input 3 
 		); 
             
 	SB_LUT4 #(.LUT_INIT(16'h0001)) SB_LUT4_and7 ( 
-		.O (out[7]),    // output 
-		.I0 (input1[7]),    // data input 0 
-		.I1 (input2[7]),    // data input 1 
-		.I2 (input3[7]),    // data input 2 
-		.I3 (input4[7])     // data input 3 
+		.O (out_and[7]),    //output 
+		.I0 (input1_and[7]),    // data input 0 
+		.I1 (input2_and[7]),    // data input 1 
+		.I2 (input3_and[7]),    // data input 2 
+		.I3 (input4_and[7])     // data input 3 
 		); 
             
 	SB_LUT4 #(.LUT_INIT(16'h0001)) SB_LUT4_and8 ( 
-		.O (out[8]),    // output 
-		.I0 (input1[8]),    // data input 0 
-		.I1 (input2[8]),    // data input 1 
-		.I2 (input3[8]),    // data input 2 
-		.I3 (input4[8])     // data input 3 
+		.O (out_and[8]),    //output 
+		.I0 (input1_and[8]),    // data input 0 
+		.I1 (input2_and[8]),    // data input 1 
+		.I2 (input3_and[8]),    // data input 2 
+		.I3 (input4_and[8])     // data input 3 
 		); 
             
 	SB_LUT4 #(.LUT_INIT(16'h0001)) SB_LUT4_and9 ( 
-		.O (out[9]),    // output 
-		.I0 (input1[9]),    // data input 0 
-		.I1 (input2[9]),    // data input 1 
-		.I2 (input3[9]),    // data input 2 
-		.I3 (input4[9])     // data input 3 
+		.O (out_and[9]),    //output 
+		.I0 (input1_and[9]),    // data input 0 
+		.I1 (input2_and[9]),    // data input 1 
+		.I2 (input3_and[9]),    // data input 2 
+		.I3 (input4_and[9])     // data input 3 
 		); 
 
 	SB_LUT4 #(.LUT_INIT(16'h0001)) SB_LUT4_and10 ( 
-		.O (out[10]),    // output 
-		.I0 (input1[10]),    // data input 0 
-		.I1 (input2[10]),    // data input 1 
-		.I2 (input3[10]),    // data input 2 
-		.I3 (input4[10])     // data input 3 
+		.O (out_and[10]),    //output 
+		.I0 (input1_and[10]),    // data input 0 
+		.I1 (input2_and[10]),    // data input 1 
+		.I2 (input3_and[10]),    // data input 2 
+		.I3 (input4_and[10])     // data input 3 
 		);  
 
 	SB_LUT4 #(.LUT_INIT(16'h0001)) SB_LUT4_and11 ( 
-		.O (out[11]),    // output 
-		.I0 (input1[11]),    // data input 0 
-		.I1 (input2[11]),    // data input 1 
-		.I2 (input3[11]),    // data input 2 
-		.I3 (input4[11])     // data input 3 
+		.O (out_and[11]),    //output 
+		.I0 (input1_and[11]),    // data input 0 
+		.I1 (input2_and[11]),    // data input 1 
+		.I2 (input3_and[11]),    // data input 2 
+		.I3 (input4_and[11])     // data input 3 
 		); 
 
 	SB_LUT4 #(.LUT_INIT(16'h0001)) SB_LUT4_and12 ( 
-		.O (out[12]),    // output 
-		.I0 (input1[12]),    // data input 0 
-		.I1 (input2[12]),    // data input 1 
-		.I2 (input3[12]),    // data input 2 
-		.I3 (input4[12])     // data input 3 
+		.O (out_and[12]),    //output 
+		.I0 (input1_and[12]),    // data input 0 
+		.I1 (input2_and[12]),    // data input 1 
+		.I2 (input3_and[12]),    // data input 2 
+		.I3 (input4_and[12])     // data input 3 
 		); 
 
 	SB_LUT4 #(.LUT_INIT(16'h0001)) SB_LUT4_and13 ( 
-		.O (out[13]),    // output 
-		.I0 (input1[13]),    // data input 0 
-		.I1 (input2[13]),    // data input 1 
-		.I2 (input3[13]),    // data input 2 
-		.I3 (input4[13])     // data input 3 
+		.O (out_and[13]),    //output 
+		.I0 (input1_and[13]),    // data input 0 
+		.I1 (input2_and[13]),    // data input 1 
+		.I2 (input3_and[13]),    // data input 2 
+		.I3 (input4_and[13])     // data input 3 
 		); 
 
 	SB_LUT4 #(.LUT_INIT(16'h0001)) SB_LUT4_and14 ( 
-		.O (out[14]),    // output 
-		.I0 (input1[14]),    // data input 0 
-		.I1 (input2[14]),    // data input 1 
-		.I2 (input3[14]),    // data input 2 
-		.I3 (input4[14])     // data input 3 
+		.O (out_and[14]),    //output 
+		.I0 (input1_and[14]),    // data input 0 
+		.I1 (input2_and[14]),    // data input 1 
+		.I2 (input3_and[14]),    // data input 2 
+		.I3 (input4_and[14])     // data input 3 
 		); 
 
 	SB_LUT4 #(.LUT_INIT(16'h0001)) SB_LUT4_and15 ( 
-		.O (out[15]),    // output 
-		.I0 (input1[15]),    // data input 0 
-		.I1 (input2[15]),    // data input 1 
-		.I2 (input3[15]),    // data input 2 
-		.I3 (input4[15])     // data input 3 
+		.O (out_and[15]),    //output 
+		.I0 (input1_and[15]),    // data input 0 
+		.I1 (input2_and[15]),    // data input 1 
+		.I2 (input3_and[15]),    // data input 2 
+		.I3 (input4_and[15])     // data input 3 
 		); 
 
 	SB_LUT4 #(.LUT_INIT(16'h0001)) SB_LUT4_and16 ( 
-		.O (out[16]),    // output 
-		.I0 (input1[16]),    // data input 0 
-		.I1 (input2[16]),    // data input 1 
-		.I2 (input3[16]),    // data input 2 
-		.I3 (input4[16])     // data input 3 
+		.O (out_and[16]),    //output 
+		.I0 (input1_and[16]),    // data input 0 
+		.I1 (input2_and[16]),    // data input 1 
+		.I2 (input3_and[16]),    // data input 2 
+		.I3 (input4_and[16])     // data input 3 
 		); 
             
 	SB_LUT4 #(.LUT_INIT(16'h0001)) SB_LUT4_and17 ( 
-		.O (out[17]),    // output 
-		.I0 (input1[17]),    // data input 0 
-		.I1 (input2[17]),    // data input 1 
-		.I2 (input3[17]),    // data input 2 
-		.I3 (input4[17])     // data input 3 
+		.O (out_and[17]),    //output 
+		.I0 (input1_and[17]),    // data input 0 
+		.I1 (input2_and[17]),    // data input 1 
+		.I2 (input3_and[17]),    // data input 2 
+		.I3 (input4_and[17])     // data input 3 
 		); 
             
 	SB_LUT4 #(.LUT_INIT(16'h0001)) SB_LUT4_and18 ( 
-		.O (out[18]),    // output 
-		.I0 (input1[18]),    // data input 0 
-		.I1 (input2[18]),    // data input 1 
-		.I2 (input3[18]),    // data input 2 
-		.I3 (input4[18])     // data input 3 
+		.O (out_and[18]),    //output 
+		.I0 (input1_and[18]),    // data input 0 
+		.I1 (input2_and[18]),    // data input 1 
+		.I2 (input3_and[18]),    // data input 2 
+		.I3 (input4_and[18])     // data input 3 
 		); 
             
 	SB_LUT4 #(.LUT_INIT(16'h0001)) SB_LUT4_and19 ( 
-		.O (out[19]),    // output 
-		.I0 (input1[19]),    // data input 0 
-		.I1 (input2[19]),    // data input 1 
-		.I2 (input3[19]),    // data input 2 
-		.I3 (input4[19])     // data input 3 
+		.O (out_and[19]),    //output 
+		.I0 (input1_and[19]),    // data input 0 
+		.I1 (input2_and[19]),    // data input 1 
+		.I2 (input3_and[19]),    // data input 2 
+		.I3 (input4_and[19])     // data input 3 
 		); 
 
 	SB_LUT4 #(.LUT_INIT(16'h0001)) SB_LUT4_and20 ( 
-		.O (out[20]),    // output 
-		.I0 (input1[20]),    // data input 0 
-		.I1 (input2[20]),    // data input 1 
-		.I2 (input3[20]),    // data input 2 
-		.I3 (input4[20])     // data input 3 
+		.O (out_and[20]),    //output 
+		.I0 (input1_and[20]),    // data input 0 
+		.I1 (input2_and[20]),    // data input 1 
+		.I2 (input3_and[20]),    // data input 2 
+		.I3 (input4_and[20])     // data input 3 
 		); 
 
 	SB_LUT4 #(.LUT_INIT(16'h0001)) SB_LUT4_and21 ( 
-		.O (out[21]),    // output 
-		.I0 (input1[21]),    // data input 0 
-		.I1 (input2[21]),    // data input 1 
-		.I2 (input3[21]),    // data input 2 
-		.I3 (input4[21])     // data input 3 
+		.O (out_and[21]),    //output 
+		.I0 (input1_and[21]),    // data input 0 
+		.I1 (input2_and[21]),    // data input 1 
+		.I2 (input3_and[21]),    // data input 2 
+		.I3 (input4_and[21])     // data input 3 
 		); 
 
 	SB_LUT4 #(.LUT_INIT(16'h0001)) SB_LUT4_and22 ( 
-		.O (out[22]),    // output 
-		.I0 (input1[22]),    // data input 0 
-		.I1 (input2[22]),    // data input 1 
-		.I2 (input3[22]),    // data input 2 
-		.I3 (input4[22])     // data input 3 
+		.O (out_and[22]),    //output 
+		.I0 (input1_and[22]),    // data input 0 
+		.I1 (input2_and[22]),    // data input 1 
+		.I2 (input3_and[22]),    // data input 2 
+		.I3 (input4_and[22])     // data input 3 
 		); 
 
 	SB_LUT4 #(.LUT_INIT(16'h0001)) SB_LUT4_and23 ( 
-		.O (out[23]),    // output 
-		.I0 (input1[23]),    // data input 0 
-		.I1 (input2[23]),    // data input 1 
-		.I2 (input3[23]),    // data input 2 
-		.I3 (input4[23])     // data input 3 
+		.O (out_and[23]),    //output 
+		.I0 (input1_and[23]),    // data input 0 
+		.I1 (input2_and[23]),    // data input 1 
+		.I2 (input3_and[23]),    // data input 2 
+		.I3 (input4_and[23])     // data input 3 
 		); 
 
 	SB_LUT4 #(.LUT_INIT(16'h0001)) SB_LUT4_and24 ( 
-		.O (out[24]),    // output 
-		.I0 (input1[24]),    // data input 0 
-		.I1 (input2[24]),    // data input 1 
-		.I2 (input3[24]),    // data input 2 
-		.I3 (input4[24])     // data input 3 
+		.O (out_and[24]),    //output 
+		.I0 (input1_and[24]),    // data input 0 
+		.I1 (input2_and[24]),    // data input 1 
+		.I2 (input3_and[24]),    // data input 2 
+		.I3 (input4_and[24])     // data input 3 
 		); 
 
 	SB_LUT4 #(.LUT_INIT(16'h0001)) SB_LUT4_and25 ( 
-		.O (out[25]),    // output 
-		.I0 (input1[25]),    // data input 0 
-		.I1 (input2[25]),    // data input 1 
-		.I2 (input3[25]),    // data input 2 
-		.I3 (input4[25])     // data input 3 
+		.O (out_and[25]),    //output 
+		.I0 (input1_and[25]),    // data input 0 
+		.I1 (input2_and[25]),    // data input 1 
+		.I2 (input3_and[25]),    // data input 2 
+		.I3 (input4_and[25])     // data input 3 
 		); 
 
 	SB_LUT4 #(.LUT_INIT(16'h0001)) SB_LUT4_and26 ( 
-		.O (out[26]),    // output 
-		.I0 (input1[26]),    // data input 0 
-		.I1 (input2[26]),    // data input 1 
-		.I2 (input3[26]),    // data input 2 
-		.I3 (input4[26])     // data input 3 
+		.O (out_and[26]),    //output 
+		.I0 (input1_and[26]),    // data input 0 
+		.I1 (input2_and[26]),    // data input 1 
+		.I2 (input3_and[26]),    // data input 2 
+		.I3 (input4_and[26])     // data input 3 
 		); 
             
 	SB_LUT4 #(.LUT_INIT(16'h0001)) SB_LUT4_and27 ( 
-		.O (out[27]),    // output 
-		.I0 (input1[27]),    // data input 0 
-		.I1 (input2[27]),    // data input 1 
-		.I2 (input3[27]),    // data input 2 
-		.I3 (input4[27])     // data input 3 
+		.O (out_and[27]),    //output 
+		.I0 (input1_and[27]),    // data input 0 
+		.I1 (input2_and[27]),    // data input 1 
+		.I2 (input3_and[27]),    // data input 2 
+		.I3 (input4_and[27])     // data input 3 
 		); 
             
 	SB_LUT4 #(.LUT_INIT(16'h0001)) SB_LUT4_and28 ( 
-		.O (out[28]),    // output 
-		.I0 (input1[28]),    // data input 0 
-		.I1 (input2[28]),    // data input 1 
-		.I2 (input3[28]),    // data input 2 
-		.I3 (input4[28])     // data input 3 
+		.O (out_and[28]),    //output 
+		.I0 (input1_and[28]),    // data input 0 
+		.I1 (input2_and[28]),    // data input 1 
+		.I2 (input3_and[28]),    // data input 2 
+		.I3 (input4_and[28])     // data input 3 
 		); 
             
 	SB_LUT4 #(.LUT_INIT(16'h0001)) SB_LUT4_and29 ( 
-		.O (out[29]),    // output 
-		.I0 (input1[29]),    // data input 0 
-		.I1 (input2[29]),    // data input 1 
-		.I2 (input3[29]),    // data input 2 
-		.I3 (input4[29])     // data input 3 
+		.O (out_and[29]),    //output 
+		.I0 (input1_and[29]),    // data input 0 
+		.I1 (input2_and[29]),    // data input 1 
+		.I2 (input3_and[29]),    // data input 2 
+		.I3 (input4_and[29])     // data input 3 
 		); 
 
 	SB_LUT4 #(.LUT_INIT(16'h0001)) SB_LUT4_and30 ( 
-		.O (out[30]),    // output 
-		.I0 (input1[30]),    // data input 0 
-		.I1 (input2[30]),    // data input 1 
-		.I2 (input3[30]),    // data input 2 
-		.I3 (input4[30])     // data input 3 
+		.O (out_and[30]),    //output 
+		.I0 (input1_and[30]),    // data input 0 
+		.I1 (input2_and[30]),    // data input 1 
+		.I2 (input3_and[30]),    // data input 2 
+		.I3 (input4_and[30])     // data input 3 
 		); 
 
 	SB_LUT4 #(.LUT_INIT(16'h0001)) SB_LUT4_and31 ( 
-		.O (out[31]),    // output 
-		.I0 (input1[31]),    // data input 0 
-		.I1 (input2[31]),    // data input 1 
-		.I2 (input3[31]),    // data input 2 
-		.I3 (input4[31])     // data input 3 
+		.O (out_and[31]),    //output 
+		.I0 (input1_and[31]),    // data input 0 
+		.I1 (input2_and[31]),    // data input 1 
+		.I2 (input3_and[31]),    // data input 2 
+		.I3 (input4_and[31])     // data input 3 
 		); 
 
 endmodule
