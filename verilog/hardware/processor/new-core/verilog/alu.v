@@ -80,8 +80,8 @@ module alu(ALUctl, A, B, ALUOut, Branch_Enable);
 	or_gate alu_or(
 		.input1(A),
 		.input2(B),
-		.input3(32'b0),
-		.input4(32'b0),
+		.input3(32'h00000000),
+		.input4(32'h00000000),
 		.out(alu_or_out),
 	);
 
