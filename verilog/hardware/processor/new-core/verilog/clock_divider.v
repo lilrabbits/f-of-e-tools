@@ -32,9 +32,9 @@ module clock_divider(REFERENCECLK,
 	                                  .SDO(),
 	                                  .SCLK());
 
-	// Fin=48, Fout=16;
-	defparam clock_divider_inst.DIVR = 4'd1;
-	defparam clock_divider_inst.DIVF = 7'd7;
+	// Fin=24, Fout=19.5;
+	defparam clock_divider_inst.DIVR = 4'd7;
+	defparam clock_divider_inst.DIVF = 7'd12;
 	defparam clock_divider_inst.DIVQ = 3'd1;
 	defparam clock_divider_inst.FILTER_RANGE = 3'b001;
 	defparam clock_divider_inst.FEEDBACK_PATH = "SIMPLE";
