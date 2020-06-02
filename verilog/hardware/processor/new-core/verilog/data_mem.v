@@ -250,7 +250,7 @@ module data_mem (clk, addr, write_data, memwrite, memread, sign_mask, read_data,
 					clk_stall <= 1;
 					word_buf <= data_block[addr_buf_block_addr - 32'h1000];
 					if(memread_buf==1'b1) begin
-					state <= READ;
+						state <= READ;
 					end
 					else if(memwrite_buf == 1'b1) begin
 						state <= WRITE;
