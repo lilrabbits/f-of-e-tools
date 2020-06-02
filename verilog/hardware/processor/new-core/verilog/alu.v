@@ -61,7 +61,6 @@ module alu(ALUctl, A, B, ALUOut, Branch_Enable);
 	output reg [31:0]	ALUOut;
 	output reg		Branch_Enable;
 
-	wire [31:0]		alu_and_out;
 	wire [31:0]		alu_or_out;
 
 	/*
@@ -78,14 +77,6 @@ module alu(ALUctl, A, B, ALUOut, Branch_Enable);
 		Branch_Enable = 1'b0;
 	end
 
-	and_gate alu_and(
-		.input1(A),
-		.input2(B),
-		.input3(32'hFFFFFFFF),
-		.input4(32'hFFFFFFFF),
-		.out(alu_and_out),
-	);
-
 	or_gate alu_or(
 		.input1(A),
 		.input2(B),
@@ -100,7 +91,7 @@ module alu(ALUctl, A, B, ALUOut, Branch_Enable);
 			/*
 			 *	AND (the fields also match ANDI and LUI)
 			 */
-			`kSAIL_MICROARCHITECTURE_ALUCTL_3to0_AND:	ALUOut = alu_and_out;
+			`kSAIL_MICROARCHITECTURE_ALUCTL_3to0_AND:	ALUOut = A & B;
 
 			/*
 			 *	OR (the fields also match ORI)
