@@ -64,6 +64,7 @@ module alu(ALUctl, A, B, ALUOut, Branch_Enable);
 	wire [31:0] 		alu_adder_out;
 	wire [31:0] 		alu_subtractor_out;
 
+	wire [31:0]		alu_and_out;
 	/*
 	 *	This uses Yosys's support for nonzero initial values:
 	 *
@@ -91,13 +92,21 @@ module alu(ALUctl, A, B, ALUOut, Branch_Enable);
 		.add_N(1'b1),
 		.out(alu_subtractor_out),
 	);
+	and_gate alu_and(
+		.input1(A),
+		.input2(B),
+		.input3(32'hFFFFFFFF),
+		.input4(32'hFFFFFFFF),
+		.out(alu_and_out),
+	);
+
 
 	always @(ALUctl, A, B) begin
 		case (ALUctl[3:0])
 			/*
 			 *	AND (the fields also match ANDI and LUI)
 			 */
-			`kSAIL_MICROARCHITECTURE_ALUCTL_3to0_AND:	ALUOut = A & B;
+			`kSAIL_MICROARCHITECTURE_ALUCTL_3to0_AND:	ALUOut = alu_and_out;
 
 			/*
 			 *	OR (the fields also match ORI)
