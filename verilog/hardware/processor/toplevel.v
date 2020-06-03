@@ -75,7 +75,7 @@ module top (led);
 	wire[31:0]	inst_in;
 	wire[31:0]	inst_out;
 	wire[31:0]	data_out;
-	wire[11:0]	data_addr;
+	wire[13:0]	data_addr;
 	wire[31:0]	data_WrData;
 	wire		data_memwrite;
 	wire		data_memread;

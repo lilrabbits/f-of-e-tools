@@ -68,7 +68,7 @@ module cpu(
 	 *	Data Memory
 	 */
 	input [31:0]		data_mem_out;
-	output [11:0]		data_mem_addr;
+	output [13:0]		data_mem_addr;
 	output [31:0]		data_mem_WrData;
 	output			data_mem_memwrite;
 	output			data_mem_memread;
@@ -511,7 +511,7 @@ module cpu(
 	assign inst_mem_in = pc_out;
 
 	//Data Memory Connections
-	assign data_mem_addr = lui_result[11:0];
+	assign data_mem_addr = lui_result[13:0];
 	assign data_mem_WrData = wb_fwd2_mux_out;
 	assign data_mem_memwrite = ex_cont_mux_out[4];
 	assign data_mem_memread = ex_cont_mux_out[5];
