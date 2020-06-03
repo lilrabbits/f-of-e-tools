@@ -246,7 +246,7 @@ module data_mem (clk, addr, write_data, memwrite, memread, sign_mask, read_data,
 				memread_buf <= memread;
 				memwrite_buf <= memwrite;
 				write_data_buffer <= write_data;
-				addr_buf <= addr;
+				addr_buf <= addr[11:0];
 				sign_mask_buf <= sign_mask;
 				
 				if(memwrite==1'b1 || memread==1'b1) begin
