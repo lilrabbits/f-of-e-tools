@@ -293,9 +293,19 @@ module cpu(
 			.out(RegB_mux_out)
 		);
 
-	assign RegA_AddrFwdFlush_mux_out = (CSRRI_signal) ? 5'b0 : if_id_out[51:47];
-	assign RegB_AddrFwdFlush_mux_out = (CSRR_signal) ? 5'b0 : if_id_out[56:52];
-
+	mux2to1 #(.width(5)) RegA_AddrFwdFlush_mux(
+			.input0(if_id_out[51:47]),
+			.input1(5'b0),
+			.select(CSRRI_signal),
+			.out(RegA_AddrFwdFlush_mux_out)
+		);
+	
+	mux2to1 #(.width(5)) RegB_AddrFwdFlush_mux(
+		.input0(if_id_out[56:52]),
+		.input1(5'b0),
+		.select(CSRR_signal),
+		.out(RegB_AddrFwdFlush_mux_out)
+	);
 	assign CSRRI_signal = CSRR_signal & (if_id_out[46]);
 
 	//ID/EX Pipeline Register
@@ -460,7 +470,9 @@ module cpu(
 	//Branch Predictor
 	branch_predictor branch_predictor_FSM(
 			.clk(clk),
+			.actual_branch_decision(actual_branch_decision),
 			.branch_decode_sig(cont_mux_out[6]),
+			.branch_mem_sig(ex_mem_out[6]),
 			.in_addr(if_id_out[31:0]),
 			.offset(imm_out),
 			.branch_addr(branch_predictor_addr),
